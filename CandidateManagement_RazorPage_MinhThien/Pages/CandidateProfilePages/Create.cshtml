@@ -1,63 +1,187 @@
 ﻿@page
 @model CandidateManagement_GUI.Pages.CandidateProfilePages.CreateModel
-
 @{
-    ViewData["Title"] = "Create Candidate Profile";
+    ViewData["Title"] = "Create Candidate";
 }
 
-<div class="candidate-form">
-    <h2 class="candidate-name">Create New Candidate Profile</h2>
-
-    <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.CandidateId">Candidate ID</label>
-            <input asp-for="CandidateProfile.CandidateId" class="form-control" />
-            <span asp-validation-for="CandidateProfile.CandidateId" class="text-danger"></span>
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="card-title mb-0">Create New Candidate</h2>
         </div>
+        <div class="card-body">
+            <form method="post" class="needs-validation" novalidate>
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.CandidateId" class="form-label">Candidate ID</label>
+                            <input asp-for="CandidateProfile.CandidateId" class="form-control" required />
+                            <span asp-validation-for="CandidateProfile.CandidateId" class="text-danger"></span>
+                        </div>
 
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.Fullname">Full Name</label>
-            <input asp-for="CandidateProfile.Fullname" class="form-control" />
-            <span asp-validation-for="CandidateProfile.Fullname" class="text-danger"></span>
-        </div>
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.Fullname" class="form-label">Full Name</label>
+                            <input asp-for="CandidateProfile.Fullname" class="form-control" required />
+                            <span asp-validation-for="CandidateProfile.Fullname" class="text-danger"></span>
+                        </div>
 
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.Birthday">Birthday</label>
-            <input asp-for="CandidateProfile.Birthday" class="form-control" type="date" />
-            <span asp-validation-for="CandidateProfile.Birthday" class="text-danger"></span>
-        </div>
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.Birthday" class="form-label">Birthday</label>
+                            <input asp-for="CandidateProfile.Birthday" class="form-control" type="date" required />
+                            <span asp-validation-for="CandidateProfile.Birthday" class="text-danger"></span>
+                        </div>
+                    </div>
 
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.ProfileShortDescription">Profile Description</label>
-            <textarea asp-for="CandidateProfile.ProfileShortDescription" class="form-control" rows="3"></textarea>
-            <span asp-validation-for="CandidateProfile.ProfileShortDescription" class="text-danger"></span>
-        </div>
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.ProfileUrl" class="form-label">Profile URL</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-link"></i></span>
+                                <input asp-for="CandidateProfile.ProfileUrl" class="form-control" />
+                            </div>
+                            <span asp-validation-for="CandidateProfile.ProfileUrl" class="text-danger"></span>
+                        </div>
 
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.ProfileUrl">Profile URL</label>
-            <input asp-for="CandidateProfile.ProfileUrl" class="form-control" />
-            <span asp-validation-for="CandidateProfile.ProfileUrl" class="text-danger"></span>
-        </div>
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.PostingId" class="form-label">Job Posting</label>
+                            <select asp-for="CandidateProfile.PostingId" class="form-select"
+                                    asp-items="ViewBag.PostingId" required>
+                                <option value="">-- Select Job Posting --</option>
+                            </select>
+                            <span asp-validation-for="CandidateProfile.PostingId" class="text-danger"></span>
+                        </div>
 
-        <div class="candidate-info">
-            <label asp-for="CandidateProfile.PostingId">Job Posting</label>
-            <select asp-for="CandidateProfile.PostingId" class="form-control" asp-items="ViewBag.PostingId">
-                <option value="">-- Select Job Posting --</option>
-            </select>
-            <span asp-validation-for="CandidateProfile.PostingId" class="text-danger"></span>
-        </div>
+                        <div class="mb-4">
+                            <label asp-for="CandidateProfile.ProfileShortDescription" class="form-label">Profile Description</label>
+                            <textarea asp-for="CandidateProfile.ProfileShortDescription" class="form-control"
+                                      rows="4" required></textarea>
+                            <span asp-validation-for="CandidateProfile.ProfileShortDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="candidate-actions">
-            <input type="submit" value="Create" class="btn-primary" />
-            <a asp-page="Index" class="btn-secondary">Back to List</a>
+                <div class="border-top pt-3 mt-4">
+                    <div class="d-flex justify-content-end gap-2">
+                        <a asp-page="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i> Create Candidate
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            padding: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .form-control, .form-select {
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .input-group-text {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+            transform: translateY(-1px);
+        }
+
+        .text-danger {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Custom validation styles */
+        .was-validated .form-control:invalid,
+        .was-validated .form-select:invalid {
+            border-color: #dc3545;
+        }
+
+        .was-validated .form-control:valid,
+        .was-validated .form-select:valid {
+            border-color: #28a745;
+        }
+    </style>
+}
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        // Enable Bootstrap form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 }
