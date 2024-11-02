@@ -13,8 +13,8 @@ namespace Candidate_Repository
         public bool AddCandidateProfile(CandidateProfile candidateProfile)
             => CandidateProfileDAO.Instance.AddCandidateProfile(candidateProfile);
 
-        public bool DeleteCandidateProfile(string profileID) 
-            => CandidateProfileDAO.Instance.DeleteCandidateProfile(profileID);
+        public bool DeleteCandidateProfile(CandidateProfile candidateProfile) 
+            => CandidateProfileDAO.Instance.DeleteCandidateProfile(candidateProfile);
         
         public CandidateProfile GetCandidateProfileById(string id)
             => CandidateProfileDAO.Instance.GetCandidateProfileById(id);

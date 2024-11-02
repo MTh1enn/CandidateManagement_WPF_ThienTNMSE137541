@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateManagement_WPF_MinhThien", "CandidateManagement_WPF_MinhThien\CandidateManagement_WPF_MinhThien.csproj", "{30DB6BC6-44DF-48FF-8184-17F68FD11878}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CandidateManagement_WPF_MinhThien", "CandidateManagement_WPF_MinhThien\CandidateManagement_WPF_MinhThien.csproj", "{30DB6BC6-44DF-48FF-8184-17F68FD11878}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candidate_BusinessObjects", "Candidate_BusinessObjects\Candidate_BusinessObjects.csproj", "{9A6D4725-0D46-4514-A66B-14CA03438058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candidate_BusinessObjects", "Candidate_BusinessObjects\Candidate_BusinessObjects.csproj", "{9A6D4725-0D46-4514-A66B-14CA03438058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candidate_DAO", "Candidate_DAO\Candidate_DAO.csproj", "{6427307A-AE7B-46FE-A4E5-5C07830C3415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candidate_DAO", "Candidate_DAO\Candidate_DAO.csproj", "{6427307A-AE7B-46FE-A4E5-5C07830C3415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candidate_Repository", "Candidate_Repository\Candidate_Repository.csproj", "{DE474BBC-2758-40D8-AC95-5DB2AEA48822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candidate_Repository", "Candidate_Repository\Candidate_Repository.csproj", "{DE474BBC-2758-40D8-AC95-5DB2AEA48822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candidate_Services", "Candidate_Services\Candidate_Services.csproj", "{F1AD019F-AA04-4ACE-8A83-8107E443877B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candidate_Services", "Candidate_Services\Candidate_Services.csproj", "{F1AD019F-AA04-4ACE-8A83-8107E443877B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateManagement_RazorPage_MinhThien", "CandidateManagement_RazorPage_MinhThien\CandidateManagement_RazorPage_MinhThien.csproj", "{8F1F047D-BF84-4160-B9D9-8911D500CA22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F1AD019F-AA04-4ACE-8A83-8107E443877B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1AD019F-AA04-4ACE-8A83-8107E443877B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1AD019F-AA04-4ACE-8A83-8107E443877B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F1F047D-BF84-4160-B9D9-8911D500CA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1F047D-BF84-4160-B9D9-8911D500CA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1F047D-BF84-4160-B9D9-8911D500CA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1F047D-BF84-4160-B9D9-8911D500CA22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

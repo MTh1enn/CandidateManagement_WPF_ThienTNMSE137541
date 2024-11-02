@@ -126,7 +126,7 @@ namespace CandidateManagement_WPF_MinhThien
                 var result = MessageBox.Show("Are you sure you want to delete this profile?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
-                    bool isDeleted = profileService.DeleteCandidateProfile(selectedProfile.CandidateId);
+                    bool isDeleted = profileService.DeleteCandidateProfile(selectedProfile);
                     if (isDeleted)
                     {
                         MessageBox.Show("Profile deleted successfully!");

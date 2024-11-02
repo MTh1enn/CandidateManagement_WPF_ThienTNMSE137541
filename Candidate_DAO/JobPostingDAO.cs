@@ -37,5 +37,64 @@ namespace Candidate_DAO
         {
             return dbContext.JobPostings.ToList();
         }
+        public bool AddJobPosting(JobPosting jobPosting)
+        {
+            bool result = false;
+            JobPosting job = GetJobPostingByID(jobPosting.PostingId);
+            try
+            {
+                if (job == null)
+                {
+                    dbContext.JobPostings.Add(jobPosting);
+                    dbContext.SaveChanges();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log
+            }
+            return result;
+        }
+        public bool DeleteJobPosting(JobPosting jobPosting)
+        {
+            bool result = false;
+            JobPosting? job = GetJobPostingByID(jobPosting.PostingId);
+            try
+            {
+                if (job != null)
+                {
+                    dbContext.JobPostings.Remove(jobPosting);
+                    dbContext.SaveChanges();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log
+            }
+            return result;
+        }
+
+        public bool UpdateJobPosting(JobPosting jobPosting)
+        {
+            bool result = false;
+            JobPosting? job = GetJobPostingByID(jobPosting.PostingId);
+            try
+            {
+                if (job != null)
+                {
+                    dbContext.Entry(job).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                    dbContext.Entry(jobPosting).State = Microsoft.EntityFrameworkCore.EntityState.Modified; ;
+                    dbContext.SaveChanges();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log
+            }
+            return result;
+        }
     }
 }

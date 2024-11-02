@@ -1,0 +1,46 @@
+﻿@page
+@model CandidateManagement_GUI.Pages.LoginPages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-container">
+    <div class="login-header">
+        <h2>Welcome Back</h2>
+        <p>Please login to your account</p>
+    </div>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input name="txtEmail"
+                   type="email"
+                   class="form-control"
+                   id="exampleInputEmail1"
+                   aria-describedby="emailHelp"
+                   placeholder="Enter email"
+                   required>
+            <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input name="txtPassword"
+                   type="password"
+                   class="form-control"
+                   id="exampleInputPassword1"
+                   placeholder="Enter password"
+                   required>
+        </div>
+
+        <div class="button-group">
+            <input type="submit"
+                   class="btn btn-primary"
+                   name="btnLogin"
+                   value="Login" />
+            <input type="reset"
+                   class="btn btn-danger"
+                   value="Cancel" />
+        </div>
+    </form>
+</div>

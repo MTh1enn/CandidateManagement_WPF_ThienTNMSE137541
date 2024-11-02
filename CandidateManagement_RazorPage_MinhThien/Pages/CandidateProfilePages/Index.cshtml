@@ -1,0 +1,62 @@
+﻿@page
+@model CandidateManagement_GUI.Pages.CandidateProfilePages.IndexModel
+
+@{
+    ViewData["Title"] = "Candidate Profiles";
+}
+
+<h2 class="candidate-name">Candidate Profiles</h2>
+
+<p>
+    <a asp-page="Create" class="btn-primary">Create New</a>
+</p>
+
+<div class="candidate-list">
+    @foreach (var item in Model.CandidateProfile)
+    {
+        <div class="candidate-card">
+            <div class="candidate-info">
+                <strong>@Html.DisplayNameFor(model => model.CandidateProfile[0].Fullname)</strong>
+                <p>@Html.DisplayFor(modelItem => item.Fullname)</p>
+            </div>
+            <div class="candidate-info">
+                <strong>@Html.DisplayNameFor(model => model.CandidateProfile[0].Birthday)</strong>
+                <p>@Html.DisplayFor(modelItem => item.Birthday)</p>
+            </div>
+            <div class="candidate-info">
+                <strong>@Html.DisplayNameFor(model => model.CandidateProfile[0].ProfileShortDescription)</strong>
+                <p>@Html.DisplayFor(modelItem => item.ProfileShortDescription)</p>
+            </div>
+            <div class="candidate-info">
+                <strong>@Html.DisplayNameFor(model => model.CandidateProfile[0].ProfileUrl)</strong>
+                <p>@Html.DisplayFor(modelItem => item.ProfileUrl)</p>
+            </div>
+            <div class="candidate-info">
+                <strong>@Html.DisplayNameFor(model => model.CandidateProfile[0].PostingId)</strong>
+                <p>@Html.DisplayFor(modelItem => item.PostingId)</p>
+            </div>
+            <div class="candidate-actions">
+                <a asp-page="./Edit" asp-route-id="@item.CandidateId" class="btn-primary">Edit</a>
+                <a asp-page="./Details" asp-route-id="@item.CandidateId" class="btn-secondary">Details</a>
+                <a asp-page="./Delete" asp-route-id="@item.CandidateId" class="btn-delete">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="pagination">
+    @if (Model.CurrentPage > 1)
+    {
+        <a asp-page="./Index" asp-route-pageNumber="@(Model.CurrentPage - 1)">&laquo; Previous</a>
+    }
+
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <a asp-page="./Index" asp-route-pageNumber="@i" class="@(i == Model.CurrentPage ? "active" : "")">@i</a>
+    }
+
+    @if (Model.CurrentPage < Model.TotalPages)
+    {
+        <a asp-page="./Index" asp-route-pageNumber="@(Model.CurrentPage + 1)">Next &raquo;</a>
+    }
+</div>

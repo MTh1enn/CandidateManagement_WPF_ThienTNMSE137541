@@ -1,0 +1,37 @@
+﻿@page
+@model CandidateManagement_GUI.Pages.JobPostingPages.IndexModel
+
+<div class="job-container">
+    <div class="job-header">
+        <h2>Job Postings</h2>
+        <a asp-page="Create" class="create-button">Create New</a>
+    </div>
+
+    <table class="job-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Posted Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.JobPosting)
+            {
+                <tr>
+                    <td>@item.PostingId</td>
+                    <td>@item.JobPostingTitle</td>
+                    <td>@item.Description</td>
+                    <td>@item.PostedDate</td>
+                    <td class="action-buttons">
+                        <a asp-page="./Edit" asp-route-id="@item.PostingId" class="btn-edit">Edit</a>
+                        <a asp-page="./Details" asp-route-id="@item.PostingId" class="btn-details">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@item.PostingId" class="btn-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

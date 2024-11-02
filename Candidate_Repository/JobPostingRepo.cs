@@ -13,5 +13,9 @@ namespace Candidate_Repository
         public JobPosting GetJobPostingById(string jobId) => JobPostingDAO.Instance.GetJobPostingByID(jobId);
 
         public List<JobPosting> GetJobPostings() => JobPostingDAO.Instance.GetJobPosting();
+        public bool UpdateJobPosting(JobPosting jobPosting) => JobPostingDAO.Instance.UpdateJobPosting(jobPosting);
+        public bool AddJobPosting(JobPosting jobPosting) => JobPostingDAO.Instance.AddJobPosting(jobPosting);
+
+        public bool DeleteJobPosting(JobPosting jobPosting) => JobPostingDAO.Instance.DeleteJobPosting(jobPosting);
     }
 }

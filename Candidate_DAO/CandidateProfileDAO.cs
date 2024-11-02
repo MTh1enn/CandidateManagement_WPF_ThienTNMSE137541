@@ -38,7 +38,7 @@ namespace Candidate_DAO
         public bool AddCandidateProfile(CandidateProfile candidateProfile)
         {
             bool isSuccess = false;
-            CandidateProfile candidate = this.GetCandidateProfileById(candidateProfile.CandidateId);
+            CandidateProfile? candidate = this.GetCandidateProfileById(candidateProfile.CandidateId);
             try
             {
                 if (candidate == null)
@@ -60,13 +60,13 @@ namespace Candidate_DAO
             return isSuccess;
         }
 
-        public bool DeleteCandidateProfile(string profileID)
+        public bool DeleteCandidateProfile(CandidateProfile candidateProfile)
         {
             bool isSuccess = false;
-            CandidateProfile candidateProfile = this.GetCandidateProfileById(profileID);
+            CandidateProfile? existedCandidateProfile = GetCandidateProfileById(candidateProfile.CandidateId);
             try
             {
-                if (profileID != null)
+                if (existedCandidateProfile != null)
                 {
                     context.CandidateProfiles.Remove(candidateProfile);
                     context.SaveChanges();

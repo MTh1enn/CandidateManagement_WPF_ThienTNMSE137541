@@ -20,9 +20,9 @@ namespace Candidate_Services
             return profileRepo.AddCandidateProfile(candidateProfile);
         }
 
-        public bool DeleteCandidateProfile(string profileID)
+        public bool DeleteCandidateProfile(CandidateProfile candidateProfile)
         {
-            return profileRepo.DeleteCandidateProfile(profileID);
+            return profileRepo.DeleteCandidateProfile(candidateProfile);
         }
 
         public CandidateProfile GetCandidateProfileById(string id)
@@ -38,6 +38,20 @@ namespace Candidate_Services
         public bool UpdateCandidateProfile(CandidateProfile candidateProfile)
         {
             return profileRepo.UpdateCandidateProfile(candidateProfile);
+        }
+        public (List<CandidateProfile> Items, int TotalItems, int TotalPages) GetCandidateProfiles(int pageNumber, int pageSize)
+        {
+            var allProfiles = profileRepo.GetCandidateProfiles();
+            var totalItems = allProfiles.Count();
+
+            var pagedProfiles = allProfiles
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            return (pagedProfiles, totalItems, totalPages);
         }
     }
 }

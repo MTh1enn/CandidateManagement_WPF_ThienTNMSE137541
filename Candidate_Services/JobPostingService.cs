@@ -24,5 +24,10 @@ namespace Candidate_Services
         {
             return jobPostingRepo.GetJobPostings();
         }
+        public bool UpdateJobPosting(JobPosting jobPosting) => jobPostingRepo.UpdateJobPosting(jobPosting);
+        public bool AddJobPosting(JobPosting jobPosting) => jobPostingRepo.AddJobPosting(jobPosting);
+
+        public bool DeleteJobPosting(JobPosting jobPosting) => jobPostingRepo.DeleteJobPosting(jobPosting);
+
     }
 }
